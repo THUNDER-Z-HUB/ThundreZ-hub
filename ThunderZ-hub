@@ -242,6 +242,14 @@ Tabs.Teleport:AddButton({
     end
 })
 
+Tabs.Teleport:AddButton({
+    Title = "TP Vertigo Island underwater",
+    Description = "",
+    Callback = function()
+        game.Players.LocalPlayer.Character.Humanoid.RootPart.CFrame = CFrame.new(-111.160294, -515.299316, 1142.05505, -0.991547108, 9.14033507e-08, 0.129747272, 9.16893939e-08, 1, -3.76886966e-09, -0.129747272, 8.15943668e-09, -0.991547108)
+    end
+})
+
 -- Shop
 local InterfaceSection = Tabs.Shop:AddSection("Power&Luck")
 
@@ -261,7 +269,53 @@ Tabs.Shop:AddButton({
     end
 })
 
-local InterfaceSection = Tabs.Shop:AddSection("Soon...")
+local InterfaceSection = Tabs.Shop:AddSection("Crates")
+
+Tabs.Shop:AddButton({
+    Title = "Buy Moosewood 25,000 ",
+    Description = "",
+    Callback = function()
+        local args = {
+            [1] = "Moosewood"
+        }
+            
+        game:GetService("ReplicatedStorage"):WaitForChild("packages"):WaitForChild("Net"):WaitForChild("RF/SkinCrates/Purchase"):InvokeServer(unpack(args))
+    end
+})
+
+Tabs.Shop:AddButton({
+    Title = "Buy Ancient 175,000 ",
+    Description = "",
+    Callback = function()
+        local args = {
+            [1] = "Ancient"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("packages"):WaitForChild("Net"):WaitForChild("RF/SkinCrates/Purchase"):InvokeServer(unpack(args))
+    end
+})
+
+Tabs.Shop:AddButton({
+    Title = "Buy Atlantis 250,000 ",
+    Description = "",
+    Callback = function()
+        local args = {
+            [1] = "Atlantis"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("packages"):WaitForChild("Net"):WaitForChild("RF/SkinCrates/Purchase"):InvokeServer(unpack(args))
+    end
+})
+
+
+
+-- ออโต้รีจอย  
+game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(status)
+    if status == Enum.TeleportState.Failed then
+        wait(2) -- รอ 2 วินาทีก่อนลองใหม่
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+    end
+end)
 
 
 SaveManager:SetLibrary(Fluent)
