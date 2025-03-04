@@ -45,10 +45,20 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
-Tabs.Main:AddParagraph({
-    Title = "link discord",
-    Content = "https://discord.gg/f6Mge5f2w2"
+local InterfaceSection = Tabs.Main:AddSection("Discord")
+
+InterfaceSection:AddButton({
+    Title = "Discord Link",
+    Callback = function()
+        setclipboard("https://discord.gg/f6Mge5f2w2")
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Copied!",
+            Text = "Discord link copied to clipboard.",
+            Duration = 3
+        })
+    end
 })
+
 
 -- Freeze Toggle
 local AutoCastToggle = Tabs.Main:AddToggle("AutoCast", { Title = "Faem for money", Default = false })
