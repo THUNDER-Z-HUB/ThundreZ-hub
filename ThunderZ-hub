@@ -64,7 +64,6 @@ AutoCastToggle:OnChanged(function(state)
     end
 end)
 
-
 -- Auto Fisch Toggle
 local AutoFischToggle = Tabs.Main:AddToggle("AutoFisch", { Title = "Auto Fisch", Default = false })
 AutoFischToggle:OnChanged(function(state)
@@ -123,7 +122,15 @@ AutoFischToggle:OnChanged(function(state)
     end)
 end)
 
-local InterfaceSection = Tabs.Main:AddSection("Soon...")
+local InterfaceSection = Tabs.Main:AddSection("Auto Sell")
+
+Tabs.Main:AddButton({
+    Title = "Auto Sell",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage"):WaitForChild("events"):WaitForChild("SellAll"):InvokeServer()
+    end
+})
 
 
 -- TP
