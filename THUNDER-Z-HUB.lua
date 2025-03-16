@@ -18,7 +18,7 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "Main" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "list" }),
     Teleport = Window:AddTab({ Title = "Teleport", Icon = "Teleport" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
@@ -119,7 +119,7 @@ Tabs.Teleport:AddButton({
 })
 
 Tabs.Teleport:AddButton({
-    Title = "Teleport to Door 10B",
+    Title = "Teleport to Door 1B",
     Description = "Instantly teleport to the 10B door.",
     Callback = function()
         teleportToPosition(Vector3.new(54.7824249, 7.91474104, 811.184509, -0.864480197, 0.000181875279, -0.502666831, 9.56207659e-05, 1, 0.000197373316, 0.502666891, 0.000122559926, -0.864480197))
